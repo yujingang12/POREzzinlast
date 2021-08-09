@@ -1,0 +1,39 @@
+<!-- 포트폴리오 분야별 확인 -->
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pfshow</title>
+    <link rel="stylesheet" type="text/css" href="/static/portfolio/css/pfshow.css">
+
+</head>
+<body>
+    <h1>{{ field }}</h1>
+    <div class="all">
+        {% for p in portfolios %}
+        {% if p.f_id == field %}
+        <div id="columns">
+            <figure>
+                <a href="{% url 'pfdetail' p.id %}">{{p.pf_title}}</a><br>
+                    <figcaption>        
+                    닉네임:{{ p.user_id.nickname }}
+                    <br>
+                    {{p.pf_content | safe}}
+                    <br>
+                    {{ p.pf_date }}
+                    {% endif %}
+                    </figcaption>
+            </figure>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock %}
+

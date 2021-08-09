@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'user/css/signupend.css' %}">
+<div class="end" style="text-align: center;">
+    <img class="cele" src="/static/user/img/celebrate.png" alt="축하">
+    <h1>회원가입이 정상적으로 완료되었습니다!</h1>
+    <h3>{{ user.nickname }}님 po ; re 에 가입해 주셔서 감사합니다!</h3>
+    <br>
+    <div class="buttons">
+        <a href="{% url 'guide' %}">
+            <button type="button" class="goguide">이용 가이드 확인하기</button>
+        </a>
+        <a href="{% url 'fieldchoose' %}">
+            <button type="button" class="goav">분야별 평균가 확인하러 가기</button>
+        </a>
+        <a href="{% url 'pfselect' %}">
+            <button type="button" class="gopf">포트폴리오 보러 가기</button>
+        </a>
+        <a href="{% url 'main' %}">
+            <button type="button">메인으로</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

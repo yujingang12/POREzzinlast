@@ -1,0 +1,67 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/community/css/community.css">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <title>커뮤니티</title>
+</head>
+<body>
+    <h1>{{ categorys }}</h1>
+    <div class="ccontainer">
+        <a href="{% url 'cmwrite' %}">
+            <button type="button" class="button pull-right" style="margin-right: 150px;">글작성</button>
+        </a>
+
+        <div class="container">
+
+            </div>
+            <table style= "width : 80% " class="table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">제목</th>
+                        <th style="text-align: center;">작성자</th>
+                        <th style="text-align: center;">날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in communitys %} <!--views에 설정한 거-->
+                    {% if c.com_id == categorys %} <!--views에서 get_object 설정한 거-->
+                        <tr>
+                            <td><a href="{% url 'cmdetail' c.id %}">{{ c.post_title }}</a></td>
+                            <td>{{ c.user_id }}</td>
+                            <td>{{ c.post_date}}</td>                   
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+                    {% endblock %} 
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="text-center">
+            {% if communitys.has_previous %}
+            <a href="?page=1">처음</a>
+            <a href="?page={{ communitys.previous_page_number }}">이전</a>
+            {% endif %}
+            
+            <span>{{ communitys.number }}</span>
+            <span>of</span>
+            <span>{{ communitys.paginator.num_pages }}</span>
+            
+            {% if communitys.has_next %}
+            <a href="?page={{ communitys.next_page_number }}">다음</a>
+            <a href="?page={{ communitys.paginator.num_pages }}">마지막</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

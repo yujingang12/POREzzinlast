@@ -1,0 +1,54 @@
+.average {
+    border: 3px solid #ece0d9;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+    min-height: 500px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    background-color: #D6002E;
+    display: block;
+    border: none;
+    color: white;
+    font-weight: 20px;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.deal {
+    background-color: #d6002ea2;
+    display: block;
+    border: none;
+    color: white;
+    font-weight: 20px;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+}
+
+.pfpreview {
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid #ece0d9;
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 250px;
+
+
+
+}
+
